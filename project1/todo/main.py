@@ -34,8 +34,8 @@ class LinearRegressionGradientdescent(LinearRegressionBase):
         LinearRegressionBase.__init__(self)
         self.losses = []
 
-    def fit(self, X, y, learning_rate: float = 1e-4, epochs: int = 500, batch_size: int = 5,
-            L1: bool = False, L1Rate: float = 1e-4):
+    def fit(self, X, y, learning_rate: float = 1e-4, epochs: int = 500, 
+            batch_size: int = 5, L1: bool = False, L1Rate: float = 1e-4):
         # add basis(1) in first column of Matrix
         X = np.insert(X, 0, values=np.ones((X.shape[0],)), axis=1)
         # init weight
@@ -54,7 +54,8 @@ class LinearRegressionGradientdescent(LinearRegressionBase):
                 # update weight
                 delta = (-2 / batch_size) * ((y[batchIndex] - y_pred) @ X[batchIndex])
                 if L1:
-                    delta = np.array([delta[i] + L1Rate if self.weights[i] > 0 else delta[i] - L1Rate
+                    delta = np.array([delta[i] + L1Rate 
+                                     if self.weights[i] > 0 else delta[i] - L1Rate
                                      for i in range(X.shape[1])])
                 self.weights = self.weights - learning_rate * delta
             self.losses.append(sum(batch_loss) / len(batch_loss))
@@ -66,7 +67,8 @@ class LinearRegressionGradientdescent(LinearRegressionBase):
 
     def plot_learning_curve(self):
         self.losses = self.losses[1:]
-        sns.lineplot(x=np.arange(len(self.losses[1:])), y=self.losses[1:], alpha=0.8, label='Training MSE loss')
+        sns.lineplot(x=np.arange(len(self.losses[1:])), y=self.losses[1:], alpha=0.8, 
+                     label='Training MSE loss')
         plt.title('Training loss')
         plt.xlabel('Epoch')
         plt.ylabel('MSE loss')

@@ -38,7 +38,7 @@ class LogisticRegression:
     def predict(
         self,
         inputs: npt.NDArray[float],
-    ) -> t.Tuple[t.Sequence[np.float_], t.Sequence[int]]:
+    ) -> t.Tuple[t.Sequence[np.float64], t.Sequence[int]]:
         """
         Implement your prediction function here.
         The return should contains
