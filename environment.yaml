@@ -2,11 +2,10 @@ name: pattern-recognition-env
 channels:
   - defaults
 dependencies:
-  - flake8=7.3.0=py312h06a4308_0
-  - pip=25.3=pyhc872135_0
-  - pyflakes=3.4.0=py312h06a4308_0
-  - pytest=8.4.2=py312h06a4308_0
-  - python=3.12.12=hd17a9e1_1
+  - flake8=7.3.0
+  - pip=25.3
+  - pytest=8.4.2
+  - python=3.12.12
   - pip:
       - loguru==0.7.3
       - matplotlib==3.10.8
@@ -18,4 +17,3 @@ dependencies:
       - torch==2.9.1+cu126
       - torchvision==0.24.1+cu126
       - triton==3.5.1
-
